@@ -12,7 +12,7 @@
       
     <div>    
         <div> 
-          <form  name="checkout" id="user-checkout" action="" method="get">
+          <form action="checkoutSubmission" name="checkout" id="user-checkout" action="" method="get">
             
                 <fieldset>
                     <legend>Delivery Details</legend>
@@ -179,7 +179,7 @@
     }
     
     function compare(){
-        event.preventDefault();
+       
         paymentDiv.innerText = "";
         cardDiv.innerText = "";
         
@@ -195,7 +195,9 @@
                                           
         }
         else {
+            event.preventDefault();
             if(emailAddress.value !== regEmail.email || firstName.value !== obj.firstName || lastName.value !== obj.lastName || address1.value !== obj.address1 || address2.value !== obj.address2 || address3.value !== obj.address3){
+                
                 const par = document.createElement('p');
                 par.innerText = "The delivery details you have entered do not match those specified in your User Details. Please try again.";
                 paymentDiv.appendChild(par);

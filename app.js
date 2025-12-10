@@ -138,6 +138,12 @@ app.get('/animals', (req, res) => {
 
   });
 
+  app.get('/checkoutSubmission', (req, res) => {
+    formDetails = {email:req.query.email, firstName:req.query.firstName, lastName:req.query.lastName, address1:req.query.address1, address2:req.query.address2, address3:req.query.address3, cardName:req.query.cName, cardNumber:req.query.cNumber, CVV:req.query.CVV}
+    res.render('checkoutSubmission', {state,formDetails});
+
+  });
+
    app.get('/newPasswordSubmission', (req, res) => {
     formDetails = {email:req.query.email, code:req.query.code, password:req.query.password, reenterpassword:req.query.reenterpassword}
     res.render('newPasswordSubmission', {state,formDetails});
@@ -145,7 +151,7 @@ app.get('/animals', (req, res) => {
   });
 
   app.get('/orderDetails', (req, res) => {
-    formDetails = {firstname:req.query.firstname, lastname:req.query.lastname, address1:req.query.address1, address2:req.query.address2, address3:req.query.address3}
+    formDetails = {email:req.query.getEmail, firstname:req.query.firstname, lastname:req.query.lastname, address1:req.query.address1, address2:req.query.address2, address3:req.query.address3}
     res.render('orderDetails', {state,formDetails});
 
   });
