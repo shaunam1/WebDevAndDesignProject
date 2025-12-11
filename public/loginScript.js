@@ -25,29 +25,25 @@ logout.addEventListener('click', logUserOut);
 (function newFunction(){
     if(state){
         if(state === "Login"){
-    //if logged in
-    loginButton.style.display = "block";
-    logout.style.display = "none";
-    disappear.style.display = "block";
-    disappear2.style.display = "block";
-
-
-}
-else{
-    loginButton.style.display = "none";
-    logout.style.display = "block";
-    disappear.style.display = "none";
-    disappear2.style.display = "none";
-
-}
-
-
+            loginButton.style.display = "block";
+            logout.style.display = "none";
+            disappear.style.display = "block";
+            disappear2.style.display = "block";
+            
+        }
+        else{
+            loginButton.style.display = "none";
+            logout.style.display = "block";
+            disappear.style.display = "none";
+            disappear2.style.display = "none";
+            
+        }
     }
     else{
-    loginButton.style.display = "block";
-    logout.style.display = "none";
-    disappear.style.display = "block";
-    disappear2.style.display = "block";
+        loginButton.style.display = "block";
+        logout.style.display = "none";
+        disappear.style.display = "block";
+        disappear2.style.display = "block";
 }
     
 })();
@@ -73,12 +69,15 @@ function compareToRegisteredDetails(event){
         successMessage.innerHTML = "You are now logged in."
         messageDiv.appendChild(successMessage);
         isLoggedIn = true;
+        navDetails.innerHTML = "My Details"
+        checkoutBasket.innerHTML = "Checkout";
         
         if(loginButton.style.display === "none" && logoutBtn.style.display === "display"){
         loginButton.style.display = "block";
         logout.style.display = "none";
         disappear.style.display = "block";
         disappear2.style.display = "block";
+        
     }
     else{
          loginButton.style.display = "none";
