@@ -10,23 +10,27 @@
     <div>    
         <div class="col-sm col-md-4"> 
                
-            <form  name="login" id="user-login"  >
+            <form name="login" id="user-login"  >
+                <div id="disappear">
                 <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="wmitty@email.com" required>
+                    <label for="loginEmail">Email address</label>
+                    <input type="email" class="form-control" id="loginEmail" name="email" value="wmitty@email.com" required>
                 </div>
                 <div >
-                    <label for="passwordID">Password</label> 
-                    <input type="password" class="form-control" id="password" name="password" value="password" required>
-                </div>    
-                <div>
+                    <label for="loginPasswordID">Password</label> 
+                    <input type="password" class="form-control" id="loginPasswordID" name="password" value="password" required>
+                </div>   </div> 
+                <div id="logInOrOut">
                     <input type='submit' class="btn btn-primary" id="loginBtn" value="Login">
+                    <input type='submit' class="btn btn-primary" id="logoutBtn" value="Logout">
                 </div>
-                <div id="message"></div> 
+                <div id="loginMessage"></div> 
                
             </form>
-             <p><a href="forgotPassword">Forgot your password?</a></p>
-            <p> <a href="register">Don't have an account? Click here to Register</a></p>
+            <div id="disappear2">
+                <p><a href="forgotPassword">Forgot your password?</a></p>
+                <p> <a href="register">Don't have an account? Click here to Register</a></p>
+            </div>
 
         </div> 
     </div>   
@@ -39,14 +43,16 @@
     <script src="custom-js/custom.js"></script>   
     <script src="custom-js/login.js"></script> 
     <script src="script.js"></script> 
-    <script>
+ 
+    <!--
         
         const json = localStorage.getItem('loginDetails');
         const obj = JSON.parse(json); 
         const loginButton = document.getElementById('loginBtn');
         loginButton.addEventListener('click', emailValid);
-        const emailAddress = document.getElementById('email');
-        const messageDiv = document.getElementById('message');
+        const emailAddress = document.getElementById('loginEmail');
+        const messageDiv = document.getElementById('loginMessage');
+        
 
         function emailValid(){
             messageDiv.innerHTML = "";
@@ -70,6 +76,7 @@
                 const successMessage = document.createElement('p');
                 successMessage.innerHTML = "You are now logged in."
                 messageDiv.appendChild(successMessage);
+                isLoggedIn = true;
 
 
 
@@ -86,7 +93,7 @@
             
             
         }
-    </script>
+   -->
     
 </body>
 </html>
