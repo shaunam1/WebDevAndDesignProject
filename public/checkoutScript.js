@@ -110,9 +110,8 @@
             const par = document.createElement('p');
             par.innerText = "Thank you for your order. You will receive an email with details";
             paymentDiv.appendChild(par);
-            const cartValue = 0;
-            let cart = document.getElementById('cartCount');
-            sessionStorage.setItem('cartCount', cartValue);
+            let cartValue= 0;
+            sessionStorage.setItem('cartCountJSON', cartValue);
             sessionStorage.removeItem('productInCart');
             window.location.reload();
                                           
