@@ -1,73 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
-<main>
-    <h2>Checkout</h2>
-        <div id="testDiv">
-            <h4>Basket</h4>
-        </div>
-    <div>    
-        <div> 
-          <form action="checkoutSubmission" name="checkout" id="user-checkout" action="" method="get">
-            
-                <fieldset>
-                    <legend>Delivery Details</legend>
-
-                        <label for="getEmail">Email</label>
-                        <input type="email" id="getEmail" name="email" value="wmitty@email.com" required>
-                   
-                        <label for="getFirstName">First name</label>
-                        <input type="text"  id="getFirstName" name="firstName" value="Walter" required>
-                 
-                  
-                        <label for="getLastName">Last name</label> 
-                        <input type="text" id="getLastName" name="lastName" value="Mitty" required>
-                
-                   
-                        <label for="getAddress1">Address Line 1</label> 
-                        <input type="text"  id="getAddress1" name="address1" value="Street 1" required>
-              
-                  
-                        <label for="getAddress2">Address Line 2</label> 
-                        <input type="text" id="getAddress2" name="address2"  value="Local Town"  required>
-                   
-                  
-                        <label for="getAddress3">Address Line 3</label> 
-                        <input type="text"  id="getAddress3" name="address3"  value="County"  required>
-                </fieldset>
-              
-                <fieldset>
-                    <legend>Payment Details</legend>
-
-                        <label for="cardName">Card Name</label> 
-                        <input type="text" id="cardName" name="cardname" value="Mr Walter Mitty" readonly>
-             
-                        <label for="cardNumber">Card Number</label> 
-                        <input type="text" id="cardNumber" name="cardNumber" value="1234 1234 1234 1234" readonly>
-                   
-                        <label for="cardCVV">CVC</label> 
-                        <input type="password" id="cardCVV" name="cardCvv" required>
-                </fieldset> 
-
-                <div>
-                    <input type='submit' class="btn btn-primary" id="buy-now" name="buy-now" value="Buy Now">
-                </div>
-
-                <div id="payment"></div>
-                <div id="card"></div>
-            </form>
-
-
-        </div> 
-    </div>   
-</main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="script.js"></script>
-
-<script>
-    const paymentDiv = document.getElementById('payment');
+ const paymentDiv = document.getElementById('payment');
     const cardDiv = document.getElementById('card');
 
     const json = localStorage.getItem('form');
@@ -204,8 +135,3 @@
        
     }
 }
-</script>
-
-
-</body>
-</html>
