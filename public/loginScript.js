@@ -79,6 +79,7 @@ function compareToRegisteredDetails(event){
         disappear.style.display = "block";
         disappear2.style.display = "block";
         cartImage.style.display = "none";
+
         
     }
     else{

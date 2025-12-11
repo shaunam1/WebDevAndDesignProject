@@ -9,6 +9,7 @@ let logInOut = document.getElementById('log');
 let navDetails = document.getElementById('userInfo');
 let checkoutBasket = document.getElementById('checkoutBasket');
 let cartImage = document.getElementById('cartImage');
+
 if (sessionStorage.getItem('loginState')){
     logInOut.innerHTML = sessionStorage.getItem('loginState');
     let currentState = sessionStorage.getItem('loginState');
