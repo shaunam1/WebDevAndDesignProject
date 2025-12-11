@@ -6,7 +6,9 @@ const exphbs = require('express-handlebars');
 // instantiate express
 const app = express();
 
-//Event Listeners
+
+
+
 
 
 
@@ -156,6 +158,11 @@ app.get('/animals', (req, res) => {
 
   });
  
+  app.get('/script.js', (req, res) => {
+    
+    res.render('script', {state});
+
+  });
 
 // Start the server
 app.listen(3000, () => {

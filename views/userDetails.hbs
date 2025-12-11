@@ -47,21 +47,11 @@
 
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
+<script src="script.js"></script>
     
 
     <script>
-        /*const fs = require('fs');
-        fs.readFile('userDetailsJSON.JSON', function(err, data){
-            if (err) throw err;
-
-            const details = JSON.parse(data);
-            console.log(details);
-        });
-
-        function showInfo(data){
-            console.log(data.firstName);
-        }*/
+        
         const json = localStorage.getItem('form');
         const obj = JSON.parse(json); 
 
@@ -80,11 +70,10 @@
             address3.value = obj.address3;
         }
 
-        const cartCount = sessionStorage.getItem('cartCount');
+        
         const details = localStorage.getItem("userDetails.JSON");
         
-        let cart = document.getElementById('cartCount');
-        cart.textContent = cartCount;
+        
 
         //const json = localStorage.getItem('form');
         //const obj = JSON.parse(json); 

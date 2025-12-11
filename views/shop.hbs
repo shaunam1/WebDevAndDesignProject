@@ -179,9 +179,27 @@
 
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>
+  
+  let cartValue;
+  let sessionCount = sessionStorage.getItem('cartCountJSON');
   let cart = document.getElementById('cartCount');
-  let count = document.getElementById('cartCount').textContent;
-  let cartValue = parseInt(count, 10);
+  if (sessionCount === NaN){
+    cart.innerHTML = 0;
+  }
+  else{
+    cart.innerHTML = sessionStorage.getItem('cartCountJSON');
+
+  }
+  
+  if (sessionCount){
+    let count = sessionStorage.getItem('cartCountJSON');
+    cartValue = parseInt(count, 10);
+  } 
+  else{
+     cartValue = 0;
+  }
+  
+  
   
       
 
@@ -194,7 +212,10 @@ const dogToy = document.getElementById('dogToyBtn');
 const lead2 = document.getElementById('dogLeadBtn2');
 const dogBowl2 = document.getElementById('dogBowlBtn2');
 const scratchPost2 = document.getElementById('scratchingPostBtn2');
-const data = new Array();
+
+
+
+
 
 (function(){
   setJSON();
@@ -216,8 +237,8 @@ scratchPost2.addEventListener('click', addToCart);
 //Functions
 function addToCart(buttonID){
   cartValue++;
-  cart.textContent = cartValue;
-  sessionStorage.setItem('cartCount', cartValue);
+  cart.innerHTML = cartValue;
+  sessionStorage.setItem('cartCountJSON', cartValue);
   //addToArray(buttonID)
 }
 
@@ -385,6 +406,33 @@ function productDetailsJSON(){
           const priceSix = document.createElement('p');
           priceSix.innerHTML = "€" + productsArray[5].price;
 
+          const nameSeven = document.createElement('h5');
+          nameSeven.innerHTML = productsArray[0].name;
+          const descSeven1 = document.createElement('p');
+          descSeven1.innerHTML =  productsArray[0].description1;
+          const descSeven2 = document.createElement('p');
+          descSeven2.innerHTML =  productsArray[0].description2;
+          const priceSeven = document.createElement('p');
+          priceSeven.innerHTML = "€" + productsArray[0].price;
+
+          const nameEight = document.createElement('h5');
+          nameEight.innerHTML = productsArray[1].name;
+          const descEight1 = document.createElement('p');
+          descEight1.innerHTML =  productsArray[1].description1;
+          const descEight2 = document.createElement('p');
+          descEight2.innerHTML =  productsArray[1].description2;
+          const priceEight = document.createElement('p');
+          priceEight.innerHTML = "€" + productsArray[1].price;
+
+          const nameNine = document.createElement('h5');
+          nameNine.innerHTML = productsArray[2].name;
+          const descNine1 = document.createElement('p');
+          descNine1.innerHTML =  productsArray[2].description1;
+          const descNine2 = document.createElement('p');
+          descNine2.innerHTML =  productsArray[2].description2;
+          const priceNine = document.createElement('p');
+          priceNine.innerHTML = "€" + productsArray[2].price;
+
 
 
          // productsArray.forEach(product =>{
@@ -421,20 +469,20 @@ function productDetailsJSON(){
            
          // })
 
-            divOne.appendChild(name1);
-            divOne.appendChild(desc1);
-            divOne.appendChild(desc2);
-            divOne.appendChild(price);
+            divOne.appendChild(nameSeven);
+            divOne.appendChild(descSeven1);
+            divOne.appendChild(descSeven2);
+            divOne.appendChild(priceSeven);
 
-            divTwo.appendChild(nameTwo);
-            divTwo.appendChild(descTwo1);
-            divTwo.appendChild(descTwo2);
-            divTwo.appendChild(priceTwo);
+            divTwo.appendChild(nameEight);
+            divTwo.appendChild(descEight1);
+            divTwo.appendChild(descEight2);
+            divTwo.appendChild(priceEight);
 
-             divThree.appendChild(nameThree);
-            divThree.appendChild(descThree1);
-            divThree.appendChild(descThree2);
-            divThree.appendChild(priceThree);
+             divThree.appendChild(nameNine);
+            divThree.appendChild(descNine1);
+            divThree.appendChild(descNine2);
+            divThree.appendChild(priceNine);
             
             divFour.appendChild(nameFour);
             divFour.appendChild(descFour1);
@@ -466,6 +514,15 @@ function productDetailsJSON(){
             divNine.appendChild(descThree2);
             divNine.appendChild(priceThree);
         }
+
+        let currentCart = sessionStorage.getItem('productInCart');
+let data = new Array();
+/*if (currentCart){
+  data.push(sessionStorage.getItem('productInCart'));
+}
+else{
+  data = [];
+}*/
 
         function moveToBasket(productID){
           const json = localStorage.getItem('products');
