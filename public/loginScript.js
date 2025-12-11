@@ -71,12 +71,14 @@ function compareToRegisteredDetails(event){
         isLoggedIn = true;
         navDetails.innerHTML = "My Details"
         checkoutBasket.innerHTML = "Checkout";
+        cartImage.style.display = "block";
         
         if(loginButton.style.display === "none" && logoutBtn.style.display === "display"){
         loginButton.style.display = "block";
         logout.style.display = "none";
         disappear.style.display = "block";
         disappear2.style.display = "block";
+        cartImage.style.display = "none";
         
     }
     else{
