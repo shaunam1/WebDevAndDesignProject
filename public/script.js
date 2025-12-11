@@ -6,12 +6,24 @@ cart.innerHTML = cartCount;
 
 //Login or Logout
 let logInOut = document.getElementById('log');
+let navDetails = document.getElementById('userInfo');
 if (sessionStorage.getItem('loginState')){
     logInOut.innerHTML = sessionStorage.getItem('loginState');
+    let currentState = sessionStorage.getItem('loginState');
+    if (currentState === 'Login'){
+        navDetails.innerHTML = "";
+    }
+    else{
+        navDetails.innerHTML = "My Details";
+    }
+   
     
 }
 else{
     logInOut.innerHTML = "Login";
+    navDetails.innerHTML = "";
+    
+     
 }
 
 

@@ -21,6 +21,7 @@ let state = sessionStorage.getItem('loginState');
 const logout = document.getElementById('logoutBtn');
 logout.addEventListener('click', logUserOut);
 
+
 (function newFunction(){
     if(state){
         if(state === "Login"){
@@ -30,13 +31,13 @@ logout.addEventListener('click', logUserOut);
     disappear.style.display = "block";
     disappear2.style.display = "block";
 
+
 }
 else{
     loginButton.style.display = "none";
     logout.style.display = "block";
     disappear.style.display = "none";
     disappear2.style.display = "none";
-    
 
 }
 
