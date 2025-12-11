@@ -2,22 +2,20 @@
 const newPasswordMessageDiv = document.getElementById('newPasswordMessage');
 const submitNew = document.getElementById('submitNewPasswordBtn');
 submitNew.addEventListener('click', newPasswordEmailValid);
-        
 
-        function newPasswordEmailValid(){
+        function newPasswordEmailValid(event){
             newPasswordMessageDiv.innerHTML = "";
             let isValid = false;
             if (email.value.includes("@")){
                 isValid = true;
-                
-                comparePasswords();
+                comparePasswords(event);
             }
             else{
                 isValid = false;
             }
         }
 
-        function comparePasswords(){
+        function comparePasswords(event){
             event.preventDefault();
         
             if (passwordID.value == reenterPasswordID.value){
@@ -25,7 +23,12 @@ submitNew.addEventListener('click', newPasswordEmailValid);
                 const successMessage = document.createElement('p');
                 successMessage.innerHTML = "Password reset";
                 newPasswordMessageDiv.appendChild(successMessage);
+                isLoggedIn = true;
+                navDetails.innerHTML = "My Details"
+                checkoutBasket.innerHTML = "Checkout";
+                cartImage.style.display = "block";
                 setNewPasswordJSON();
+                sessionStorage.setItem('loginState', 'Logout');
             }
             else{
                 newPasswordMessageDiv.innerHTML = "";

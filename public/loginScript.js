@@ -7,6 +7,7 @@ if (sessionStorage.getItem('loginState')){
 else{
     loginOrLogout.innerHTML = "Login";
 }
+let isLoggedIn = false;
 const json = localStorage.getItem('loginDetails');
 const obj = JSON.parse(json); 
 const loginButton = document.getElementById('loginBtn');
@@ -16,7 +17,7 @@ const messageDiv = document.getElementById('loginMessage');
 const loginPassword = document.getElementById('loginPasswordID');
 const disappear = document.getElementById('disappear');
 const disappear2 = document.getElementById('disappear2');
-let isLoggedIn = false;
+
 let state = sessionStorage.getItem('loginState');
 const logout = document.getElementById('logoutBtn');
 logout.addEventListener('click', logUserOut);
