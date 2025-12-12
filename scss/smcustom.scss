@@ -98,3 +98,12 @@ header{
     padding-top: 2px;
     alt: "Benbulben Mountain";
 }
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+
+

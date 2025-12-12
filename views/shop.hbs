@@ -22,7 +22,11 @@
       <div class="row">
       <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
         <div class="card" id="leadClass">  
-        <img src="images/dogLead.jpg" class="card-img-top" alt="blue dog lead">
+          <picture>
+            <source srcset="images/dogLeadMedium.jpg" media="(max-width: 768px)" alt="blue dog lead">
+            <img src="images/dogLead.jpg" class="card-img-top" alt="blue dog lead">
+          </picture>
+        
         <div class="card-body" id="product1"></div>
           <button id="dogLeadBtn" class="btn btn-primary">Add to cart</button>
           </div>
@@ -61,6 +65,7 @@
       <div class="row">
       <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
         <div class="card">
+          
         <img src="images/toyMouse.png" class="card-img-top" alt="Wind up toy mouse for cat to chase">
           <div class="card-body" id="product4"></div>
           <button id="catToyBtn" class="btn btn-primary">Add to cart</button>
