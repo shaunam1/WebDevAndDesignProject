@@ -9,7 +9,7 @@ const paymentDiv = document.getElementById('paymentResults');
 const cardDiv = document.getElementById('cardResults');
 const json = localStorage.getItem('form');
 const obj = JSON.parse(json); 
-const product = sessionStorage.getItem('productInCart');
+const product = localStorage.getItem('productInCart');
 const obj2 = JSON.parse(product); 
 
 const registration = localStorage.getItem("loginDetails");
@@ -140,8 +140,8 @@ function emailValid(){
         
         if (cardCVV.value === "123" && emailAddress.value === regEmail.email && firstName.value === obj.firstName && lastName.value === obj.lastName && address1.value === obj.address1 && address2.value === obj.address2 && address3.value === obj.address3){
             cartValue= 0;
-            sessionStorage.setItem('cartCountJSON', cartValue);
-            sessionStorage.removeItem('productInCart');
+            localStorage.setItem('cartCount', cartValue);
+            localStorage.removeItem('productInCart');
                                           
         }
         else {

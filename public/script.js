@@ -1,6 +1,6 @@
 //Cart Count
-const current = localStorage.getItem('loginState');
-const cartCount = sessionStorage.getItem('cartCountJSON');
+const current = sessionStorage.getItem('loginState');
+const cartCount = localStorage.getItem('cartCount');
 let cart = document.getElementById('cartCount');
 cart.innerHTML = cartCount;
 

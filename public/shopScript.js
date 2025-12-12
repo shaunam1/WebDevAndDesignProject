@@ -8,7 +8,7 @@ const lead2 = document.getElementById('dogLeadBtn2');
 const dogBowl2 = document.getElementById('dogBowlBtn2');
 const scratchPost2 = document.getElementById('scratchingPostBtn2');
 
-let currentCart = sessionStorage.getItem('productInCart');
+let currentCart = localStorage.getItem('productInCart');
 let data = new Array();
 getJSON();
 
@@ -242,16 +242,16 @@ function getJSON(){
         }
 
  let cartValue;
- let sessionCount = sessionStorage.getItem('cartCountJSON');
+ let localCount = localStorage.getItem('cartCount');
 cart = document.getElementById('cartCount');
-if (sessionCount === NaN){
+if (localCount === NaN){
     cart.innerHTML = 0;
   }
 else{
-    cart.innerHTML = sessionStorage.getItem('cartCountJSON');
+    cart.innerHTML = localStorage.getItem('cartCount');
     }
-if (sessionCount){
-    let count = sessionStorage.getItem('cartCountJSON');
+if (localCount){
+    let count = localStorage.getItem('cartCount');
     cartValue = parseInt(count, 10);
   } 
 else{
@@ -261,8 +261,9 @@ else{
 function addToCart(productID){
   cartValue++;
   cart.innerHTML = cartValue;
-  sessionStorage.setItem('cartCountJSON', cartValue);
+  localStorage.setItem('cartCount', cartValue);
   moveToBasket(productID);
+  window.alert("Item added to basket");
 }
 
 function moveToBasket(productID){
@@ -274,8 +275,9 @@ function moveToBasket(productID){
         if (productID == productsArray[i].id){
             data.push(productsArray[i]);
             const json = JSON.stringify(data);
-            sessionStorage.setItem('productInCart', json);
+            localStorage.setItem('productInCart', json);
         }
+
     }
 }
 
