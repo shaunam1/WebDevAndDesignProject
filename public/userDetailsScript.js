@@ -3,6 +3,7 @@
     const address1 = document.getElementById('address1');
     const address2 = document.getElementById('address2');
     const address3 = document.getElementById('address3');
+    const updatedDiv = document.getElementById('userMessage');
         
     const json = localStorage.getItem('form');
     const obj = JSON.parse(json); 
@@ -30,6 +31,7 @@
         submitButton.addEventListener('click', addDetailsToJSON);
 
         function addDetailsToJSON(){
+            window.alert("Your details have been updated successfully");
             var data = {
                 "firstName":firstName.value,
                 "lastName":lastName.value,
@@ -37,9 +39,8 @@
                 "address2":address2.value,
                 "address3":address3.value
             }
+            
             const json3 = JSON.stringify(data);
             console.log(json3);
-            event.preventDefault();
             localStorage.setItem('form', json3);
-            window.location.reload();
         }

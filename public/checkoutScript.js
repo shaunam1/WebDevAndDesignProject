@@ -61,7 +61,7 @@ submitButton.addEventListener('click', emailValid);
  
 
 
-function populateUserDetails(){
+(function populateUserDetails(){
 
        email.value = regEmail.email;
        firstName.value = obj.firstName;
@@ -70,7 +70,7 @@ function populateUserDetails(){
        address2.value = obj.address2;
        address3.value = obj.address3;
 
-    }
+    })();
 
 
    (function displayProducts(){
