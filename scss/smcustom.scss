@@ -39,8 +39,8 @@ nav{
 }
 
 .btn-primary{
-    border-color: $websiteBackground;
-    background-color: $whiteBackground;
+    border-color: $whiteBackground;
+    background-color: $websiteBackground;
     color: $mainTextColour;
    /*might need to change this*/
 }
@@ -60,15 +60,44 @@ nav{
 #application{
     background-color: $whiteBackground;
     margin-top: 15px;
-    margin-left: 15%;
-    margin-right: 15%;
     margin-bottom: 15px;
+    margin-left: 15px;
+    margin-right: 15px;
     padding-top: 1.5%;
     padding-bottom: 1.5%;
+    padding-left: 5%;
     padding-right: 20%;
-    padding-left: 20%;
     border: solid darkorange;
-    min-height: 500px;
+    text-align: left;
+    
+    max-width: 500px;
+}
+
+.applicationClass{
+    background-color: $whiteBackground;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 70px;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    padding-left: 5%;
+    padding-right: 20%;
+    border: solid darkorange;
+    text-align: left;
+    max-width: 500px;
+}
+
+.form{
+    border: solid darkorange;
+    background-color: $whiteBackground;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+.container2{
+    /* flex items will wrap if necessary */
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .required{

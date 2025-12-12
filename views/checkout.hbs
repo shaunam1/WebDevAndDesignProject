@@ -5,57 +5,59 @@
 <body>
 <main>
     <h2>Checkout</h2>
-        <div id="testDiv">
+    <div class="container2">
+        <div id="testDiv" class="applicationClass">
             <h3>Basket</h3>
         </div>
     <div>    
         <div> 
-          <form action="checkoutSubmission" name="checkout" id="user-checkout" action="" method="get">
+          <form action="checkoutSubmission" name="checkout" id="application" action="" method="get">
             
                 <fieldset id="delivery">
-                    <legend><h4>Delivery Details</h4></legend>
+                    <legend><h3>Delivery Details</h3></legend>
 
-                        <label for="getEmail">Email</label>
-                        <input type="email" id="getEmail" name="email" value="wmitty@email.com" required>
+                        <label for="getEmail">Email</label></br>
+                        <input type="email" id="getEmail" name="email" value="wmitty@email.com" required></br>
                    
-                        <label for="getFirstName">First name</label>
-                        <input type="text"  id="getFirstName" name="firstName" value="Walter" required>
+                        <label for="getFirstName">First name</label></br>
+                        <input type="text"  id="getFirstName" name="firstName" value="Walter" required></br>
                  
                   
-                        <label for="getLastName">Last name</label> 
-                        <input type="text" id="getLastName" name="lastName" value="Mitty" required>
+                        <label for="getLastName">Last name</label> </br>
+                        <input type="text" id="getLastName" name="lastName" value="Mitty" required></br>
                 
                    
-                        <label for="getAddress1">Address Line 1</label> 
-                        <input type="text"  id="getAddress1" name="address1" value="Street 1" required>
+                        <label for="getAddress1">Address Line 1</label> </br>
+                        <input type="text"  id="getAddress1" name="address1" value="Street 1" required></br>
               
                   
-                        <label for="getAddress2">Address Line 2</label> 
-                        <input type="text" id="getAddress2" name="address2"  value="Local Town"  required>
+                        <label for="getAddress2">Address Line 2</label> </br>
+                        <input type="text" id="getAddress2" name="address2"  value="Local Town"  required></br>
                    
                   
-                        <label for="getAddress3">Address Line 3</label> 
-                        <input type="text"  id="getAddress3" name="address3"  value="County"  required>
+                        <label for="getAddress3">Address Line 3</label> </br>
+                        <input type="text"  id="getAddress3" name="address3"  value="County"  required></br></br>
                 </fieldset>
               
               <div id="payment">
                 <fieldset >
-                    <legend><h4>Payment Details</h4></legend>
+                    <legend><h3>Payment Details</h3></legend>
 
-                        <label for="cardName">Card Name</label> 
-                        <input type="text" id="cardName" name="cardname" value="Mr Walter Mitty" readonly>
+                        <label for="cardName">Card Name</label> </br>
+                        <input type="text" id="cardName" name="cardname" value="Mr Walter Mitty" readonly></br>
              
-                        <label for="cardNumber">Card Number</label> 
-                        <input type="text" id="cardNumber" name="cardNumber" value="1234 1234 1234 1234" readonly>
+                        <label for="cardNumber">Card Number</label> </br>
+                        <input type="text" id="cardNumber" name="cardNumber" value="1234 1234 1234 1234" readonly></br>
                    
-                        <label for="cardCVV">CVC</label> 
-                        <input type="password" id="cardCVV" name="cardCvv" required>
+                        <label for="cardCVV">CVC</label> </br>
+                        <input type="password" id="cardCVV" name="cardCvv" required></br></br>
                 </fieldset> 
 
               </div>
                 
                 <div>
                     <input type='submit' class="btn btn-primary" id="buy-now" name="buy-now" value="Buy Now">
+                </div>
                 </div>
 
                 <div id="paymentResults"></div>
