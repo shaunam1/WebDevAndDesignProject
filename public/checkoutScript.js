@@ -1,3 +1,4 @@
+//Declare variables 
 let isValid = false;
 const displayProductDiv = document.createElement('div');
 const submitButton = document.getElementById('buy-now');
@@ -26,26 +27,23 @@ const address1 = document.getElementById('getAddress1');
 const address2 = document.getElementById('getAddress2');
 const address3 = document.getElementById('getAddress3');
 
+//Event Listeners
 submitButton.addEventListener('click', emailValid);
 
+//Check if the user is logged in
+//only display user details and allow purchase if logged in
 (function checkLoggedIn(event){
-   // getJSON();
     if (sessionStorage.getItem('loginState')){
         if(sessionStorage.getItem('loginState') === "Login"){
             delivery.style.display = "none";
             paymentDetails.style.display = "none";
             submitButton.style.display = "none";
-            window.alert("Please login to checkout");
-            
+            window.alert("Please login to checkout");   
         }
         else{
-            
             delivery.style.display = "block";
             paymentDetails.style.display = "block";
             submitButton.style.display = "block";
-            
-
-            
         }
 
     }
@@ -54,13 +52,10 @@ submitButton.addEventListener('click', emailValid);
         paymentDetails.style.display = "none";
         submitButton.style.display = "none";
         window.alert("Please login to checkout");
-        
-        
     }
 })();
  
-
-
+//User details from My Details page
 (function populateUserDetails(){
 
        email.value = regEmail.email;
@@ -69,96 +64,74 @@ submitButton.addEventListener('click', emailValid);
        address1.value = obj.address1;
        address2.value = obj.address2;
        address3.value = obj.address3;
+})();
 
-    })();
-
-
-   (function displayProducts(){
-        
-        const par1 = document.createElement('p');
-        let total = 0;
-
-        if(obj2){
-            if(obj2.constructor === Array){
-            
+//Display products from productInCart localStorage
+(function displayProducts(){
+    const par1 = document.createElement('p');
+    let total = 0;
+    if(obj2){
+        if(obj2.constructor === Array){
             obj2.forEach(product =>{
             par1.innerHTML += product.name + "</br>";
             par1.innerHTML += "€" + product.price + "</br>";
             par1.innerHTML += "</br>"
             total += product.price;
-            
-            })  
+        })  
         }
         else{
-            
             par1.innerHTML += obj2.name + "</br>";
             par1.innerHTML += "€" + obj2.price+ "</br>";
         }
+    }
+    let finalTotal = total.toFixed(2);
+    par1.innerHTML += "Total: €" + finalTotal;
+    displayProductDiv.appendChild(par1);
+    myDiv.appendChild(displayProductDiv);
+})();
 
-        }
-        
-        
-        
-        let finalTotal = total.toFixed(2);
-        par1.innerHTML += "Total: €" + finalTotal;
-        
-
-        displayProductDiv.appendChild(par1);
-        myDiv.appendChild(displayProductDiv);
-
-    })();
-
-    
-  
-
-    
+//Validate email before submission
 function emailValid(){
-        
-        if (getEmail.value.includes("@")){
-            isValid = true;
-            checkBasket(event);
-        }
-        else{
-            isValid = false;
-        }
+    if (getEmail.value.includes("@")){
+        isValid = true;
+        checkBasket(event);
     }
-
-    function checkBasket(event){
-        if(obj2 === null){
-            event.preventDefault();
-            window.alert("There is nothing in your basket!");
-        }  
-        else{
-            compare(event);
-        }  
-
+    else{
+        isValid = false;
     }
-    
-    function compare(event){
-        paymentDiv.innerText = "";
-        cardDiv.innerText = "";
-        
-        if (cardCVV.value === "123" && emailAddress.value === regEmail.email && firstName.value === obj.firstName && lastName.value === obj.lastName && address1.value === obj.address1 && address2.value === obj.address2 && address3.value === obj.address3){
-            cartValue= 0;
-            localStorage.setItem('cartCount', cartValue);
-            localStorage.removeItem('productInCart');
-                                          
+}
+
+//Check that there is an item in the basket
+function checkBasket(event){
+    if(obj2 === null){
+        event.preventDefault();
+        window.alert("There is nothing in your basket!");
+    }  
+    else{
+        compare(event);
+    }  
+}
+
+//Compare the details being submitted to the correct details before allowing purchase
+function compare(event){
+    paymentDiv.innerText = "";
+    cardDiv.innerText = "";
+    if (cardCVV.value === "123" && emailAddress.value === regEmail.email && firstName.value === obj.firstName && lastName.value === obj.lastName && address1.value === obj.address1 && address2.value === obj.address2 && address3.value === obj.address3){
+        cartValue= 0;
+        localStorage.setItem('cartCount', cartValue);
+        localStorage.removeItem('productInCart');
+    }
+    else {
+        event.preventDefault();
+        if(emailAddress.value !== regEmail.email || firstName.value !== obj.firstName || lastName.value !== obj.lastName || address1.value !== obj.address1 || address2.value !== obj.address2 || address3.value !== obj.address3){
+            const par = document.createElement('p');
+            par.innerText = "The delivery details you have entered do not match those specified in your User Details. Please try again.";
+            paymentDiv.appendChild(par);
         }
-        else {
-            event.preventDefault();
-            if(emailAddress.value !== regEmail.email || firstName.value !== obj.firstName || lastName.value !== obj.lastName || address1.value !== obj.address1 || address2.value !== obj.address2 || address3.value !== obj.address3){
-                
-                const par = document.createElement('p');
-                par.innerText = "The delivery details you have entered do not match those specified in your User Details. Please try again.";
-                paymentDiv.appendChild(par);
-            }
-
-            if(cardCVV.value !== "123"){
-                const par = document.createElement('p')
-                par.innerText = "The card details you have entered are incorrect. Please try again.";
-                cardDiv.appendChild(par);
-            }
-
-       
+        if(cardCVV.value !== "123"){
+            const par = document.createElement('p')
+            par.innerText = "The card details you have entered are incorrect. Please try again.";
+            cardDiv.appendChild(par);
+        }  
     }
 }
