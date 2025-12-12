@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   // set active for navigation
   state={home:true}
   // set specifics for <head>
-  head={title: "Home", description:"This is the home page of the website", keywords: "animal rescue, rescue, dog, kitten, fundraiser"}
+  head={title: "Home", description:"This is the home page of the website", keywords: "animal rescue, rescue, dog, kitten, fundraiser, shop"}
   // pass object to to render in "index"
   res.render('index', {state:state, head:head});
   // send this to terminal where node app is running
@@ -51,35 +51,35 @@ app.get('/', (req, res) => {
   //shop route
   app.get('/shop', (req, res) => {
     state={shop : true}
-    head={title:"Shop", description:"This is the website shop", keywords: "lead, tag, dog food"}
+    head={title:"Shop", description:"This is the website shop", keywords: "lead, tag, dog food, cat scratching post, dog toy, cat toy"}
     res.render('shop', { state:state, head:head});
     console.log('shop')
   });
 
   app.get('/login', (req, res) => {
     state={login : true}
-    head={title:"Login", description:"This is the website login page", keywords: "username, password"}
+    head={title:"Login", description:"This is the website login page", keywords: "username, password, login, register"}
     res.render('login', { state:state, head:head});
     console.log('login')
   });
 
   app.get('/register', (req, res) => {
     state={register : true}
-    head={title:"Register", description:"This is the website register page", keywords: "username, password"}
+    head={title:"Register", description:"This is the website register page", keywords: "username, password, register"}
     res.render('register', { state:state, head:head});
     console.log('register')
   });
 
   app.get('/forgotPassword', (req, res) => {
     state={forgotPassword : true}
-    head={title:"Forgot Password", description:"", keywords: "username, password"}
+    head={title:"Forgot Password", description:"This is the forgot password page", keywords: "username, password, code"}
     res.render('forgotPassword', { state:state, head:head});
     console.log('forgotPassword')
   });
 
    app.get('/checkout', (req, res) => {
     state={checkout : true}
-    head={title:"Checkout", description:"This is the website checkout page", keywords: "username, password"}
+    head={title:"Checkout", description:"This is the website checkout page", keywords: "username, password, basket, total, buy, delivery, payment"}
     res.render('checkout', { state:state, head:head});
     console.log('checkout')
   });
@@ -93,7 +93,7 @@ app.get('/', (req, res) => {
 
   app.get('/userDetails', (req, res) => {
     state={userDetails : true}
-    head={title:"User Details", description:"", keywords: ""}
+    head={title:"User Details", description:"This is the user details page", keywords: "name, last name, address, details"}
     res.render('userDetails', { state:state, head:head});
     console.log('userDetails')
   });
