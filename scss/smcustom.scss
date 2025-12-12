@@ -29,7 +29,6 @@ nav{
 .active {
     color :$mainTextColour;
     font-weight: $boldFont;
-
 }
 
 .btn-outline-success{
@@ -44,7 +43,6 @@ nav{
     color: $mainTextColour;
     margin-top: 10px;
     margin-bottom: 10px;
-   /*might need to change this*/
 }
 
 .internalLink{
@@ -56,37 +54,6 @@ nav{
     background-color: lightskyblue;
     padding: $paddingButton;
     border-radius: $borderRadius;
-}
-
-
-#application{
-    background-color: $whiteBackground;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%;
-    padding-left: 5%;
-    padding-right: 20%;
-    border: solid darkorange;
-    text-align: left;
-    
-    max-width: 500px;
-}
-
-.applicationClass{
-    background-color: $whiteBackground;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 70px;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%;
-    padding-left: 5%;
-    padding-right: 20%;
-    border: solid darkorange;
-    text-align: left;
-    max-width: 500px;
 }
 
 .form{
@@ -111,27 +78,6 @@ nav{
     padding-top: 5px;
 }
 
-.container2{
-    /* flex items will wrap if necessary */
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.required{
-    font-weight: $boldFont;
-    color: red;
-}
-
-#aside {
-    
-    border: 2px solid darkorange;
-    background-color: lightskyblue;
-    padding-right: 10px;
-    margin-top: 48px;
-    margin-bottom: 25px;
-    list-style-type: square;
-}
-
 .card{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -150,20 +96,4 @@ header{
     color: $mainTextColour;
     text-align: left;
     padding-top: 2px;
-}
-
-
-
-.carousel-inner{
-    height: 500px;
-    width: 500px;
-    margin: 0 auto;
-}
-
-/*.cards-wrapper{
-    display: flex;
-}*/
-
-.nonBlueLink{
-    color: $whiteBackground;
 }
