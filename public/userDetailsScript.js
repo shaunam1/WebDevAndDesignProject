@@ -34,7 +34,7 @@ submitButton.addEventListener('click', addDetailsToJSON);
 
 //Update form with new details
 function addDetailsToJSON(){
-    window.alert("Your details have been updated successfully");
+    
     var data = {
         "firstName":firstName.value,
         "lastName":lastName.value,
@@ -42,7 +42,12 @@ function addDetailsToJSON(){
         "address2":address2.value,
         "address3":address3.value
     }
-    const json3 = JSON.stringify(data);
-    console.log(json3);
-    localStorage.setItem('form', json3);
+    if(firstName.value != "" && lastName.value != "" && address1.value != "" && address2.value != "" && address3.value != ""){
+        const json3 = JSON.stringify(data);
+        console.log(json3);
+        localStorage.setItem('form', json3);
+        window.alert("Your details have been updated successfully");
+
+    }
+    
 }

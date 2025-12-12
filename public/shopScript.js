@@ -35,7 +35,7 @@ function setJSON(){
                 "name": "Dog Lead",
                 "description1": "Blue dog lead",
                 "description2": "One size fits all",
-                "price": 5
+                "price": 5.49
         
 
             },
@@ -58,7 +58,7 @@ function setJSON(){
                 "name": "Cat Toy",
                 "description1": "Wind up toy mouse",
                 "description2": "Wind it up and watch your cat get hours of fun",
-                "price": 4    
+                "price": 4.89   
             },
             {
                "id": "product5",
@@ -72,7 +72,7 @@ function setJSON(){
              "name": "Dog Toy",
              "description1": "Rope dog toy",
              "description2": "Perfect for tug of war",
-             "price": 7.50
+             "price": 7.75
          }
         ]
     }

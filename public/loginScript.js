@@ -73,38 +73,74 @@ function compareToRegisteredDetails(event){
     event.preventDefault();
     messageDiv.innerText = "";
     //If details match
-    if((emailAddress.value == obj.email) && (loginPassword.value == obj.password)){
-        const successMessage = document.createElement('p');
-        successMessage.innerHTML = "You are now logged in."
-        messageDiv.appendChild(successMessage);
-        isLoggedIn = true;
-        navDetails.innerHTML = "My Details"
-        checkoutBasket.innerHTML = "Checkout";
-        cartImage.style.display = "block";
-        //Change display on login page
-        if(loginButton.style.display === "none" && logoutBtn.style.display === "display"){
-        loginButton.style.display = "block";
-        logout.style.display = "none";
-        disappear.style.display = "block";
-        disappear2.style.display = "block";
-        cartImage.style.display = "none";
+    if(obj){
+        if((emailAddress.value == obj.email) && (loginPassword.value == obj.password)){
+            const successMessage = document.createElement('p');
+            successMessage.innerHTML = "You are now logged in."
+            messageDiv.appendChild(successMessage);
+            isLoggedIn = true;
+            navDetails.innerHTML = "My Details"
+            checkoutBasket.innerHTML = "Checkout";
+            cartImage.style.display = "block";
+            //Change display on login page
+            if(loginButton.style.display === "none" && logoutBtn.style.display === "display"){
+            loginButton.style.display = "block";
+            logout.style.display = "none";
+            disappear.style.display = "block";
+            disappear2.style.display = "block";
+            cartImage.style.display = "none";
+            }
+            else{
+            loginButton.style.display = "none";
+            logout.style.display = "block";
+            disappear.style.display = "none";
+            disappear2.style.display = "none";
+            }
+            changeLoginState();
+            }
+            //If details don't match
+            else{
+            messageDiv.innerText = "";
+            const failMessage = document.createElement('p');
+            failMessage.innerHTML = "Email or password is incorrect."
+            messageDiv.appendChild(failMessage);
+            }
         }
         else{
-         loginButton.style.display = "none";
-         logout.style.display = "block";
-         disappear.style.display = "none";
-         disappear2.style.display = "none";
+            if((emailAddress.value == "wmitty@email.com") && (loginPassword.value == "password")){
+                const successMessage = document.createElement('p');
+                successMessage.innerHTML = "You are now logged in."
+                messageDiv.appendChild(successMessage);
+                isLoggedIn = true;
+                navDetails.innerHTML = "My Details"
+                checkoutBasket.innerHTML = "Checkout";
+                cartImage.style.display = "block";
+                //Change display on login page
+                if(loginButton.style.display === "none" && logoutBtn.style.display === "display"){
+                loginButton.style.display = "block";
+                logout.style.display = "none";
+                disappear.style.display = "block";
+                disappear2.style.display = "block";
+                cartImage.style.display = "none";
+                }
+                else{
+                loginButton.style.display = "none";
+                logout.style.display = "block";
+                disappear.style.display = "none";
+                disappear2.style.display = "none";
+                }
+                changeLoginState();
+            }
+        //If details don't match
+        else{
+            messageDiv.innerText = "";
+            const failMessage = document.createElement('p');
+            failMessage.innerHTML = "Email or password is incorrect."
+            messageDiv.appendChild(failMessage);
         }
-    changeLoginState();
-    }
-    //If details don't match
-    else{
-        messageDiv.innerText = "";
-        const failMessage = document.createElement('p');
-        failMessage.innerHTML = "Email or password is incorrect."
-        messageDiv.appendChild(failMessage);
     }
 }
+
 
 //If user clicks Logout
 function logUserOut(){

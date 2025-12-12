@@ -86,7 +86,7 @@ app.get('/', (req, res) => {
 
   app.get('/contact', (req, res) => {
     state={contact : true}
-    head={title:"Contact US", description:"This is the contact us page of the website", keywords: "animal rescue, address, opening hours, phone, email, social media, volunteers"}
+    head={title:"Contact Us", description:"This is the contact us page of the website", keywords: "animal rescue, address, opening hours, phone, email, social media, volunteers"}
     res.render('contact', { state:state, head:head});
     console.log('contact')
   });
