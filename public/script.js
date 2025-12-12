@@ -15,13 +15,9 @@ if (sessionStorage.getItem('loginState')){
     let currentState = sessionStorage.getItem('loginState');
     if (currentState === 'Login'){
         navDetails.innerHTML = "";
-        checkoutBasket.innerHTML = "";
-        cartImage.style.display = "none";
     }
     else{
         navDetails.innerHTML = "My Details";
-        checkoutBasket.innerHTML = "Checkout";
-        cartImage.style.display = "block";
     }
    
     
@@ -29,7 +25,6 @@ if (sessionStorage.getItem('loginState')){
 else{
     logInOut.innerHTML = "Login";
     navDetails.innerHTML = "";
-    checkoutBasket.innerHTML = "";
     
      
 }

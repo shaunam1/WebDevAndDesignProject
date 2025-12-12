@@ -10,78 +10,36 @@ const scratchPost2 = document.getElementById('scratchingPostBtn2');
 
 let currentCart = sessionStorage.getItem('productInCart');
 let data = new Array();
+getJSON();
 
-(function checkLoggedIn(){
-    getJSON();
-    if (sessionStorage.getItem('loginState')){
-        if(sessionStorage.getItem('loginState') === "Login"){
-            window.alert("Please login to add items to cart");
-            lead.style.display = "none";
-            scratchPost.style.display = "none";
-            catToy.style.display = "none";
-            catBowl.style.display = "none";
-            dogToy.style.display = "none";
-            lead2.style.display = "none";
-            dogBowl.style.display = "none";
-            dogBowl2.style.display = "none";
-            scratchPost2.style.display = "none";
-        }
-        else{
-            lead.style.display = "block";
-            scratchPost.style.display = "block";
-            catToy.style.display = "block";
-            catBowl.style.display = "block";
-            dogToy.style.display = "block";
-            lead2.style.display = "block";
-            dogBowl.style.display = "block";
-            dogBowl2.style.display = "block";
-            scratchPost2.style.display = "block";
 
-            //Because I'm passing parameters the function automatically runs
-            //to avoid this I used callback functions
-            lead.addEventListener('click', () => addToCart('product1'));
-            dogBowl.addEventListener('click', () => addToCart('product2'));
-            scratchPost.addEventListener('click', () => addToCart('product3'));
-            catToy.addEventListener('click', () => addToCart('product4'));
-            catBowl.addEventListener('click', () => addToCart('product5'));
-            dogToy.addEventListener('click', () => addToCart('product6'));
-            lead2.addEventListener('click', () => addToCart('product7'));
-            dogBowl2.addEventListener('click', () => addToCart('product8'));
-            scratchPost2.addEventListener('click', () => addToCart('product9'));
-
-        }
-
-    }
-    else{
-        window.alert("Please login to add items to cart");
-        lead.style.display = "none";
-        scratchPost.style.display = "none";
-        catToy.style.display = "none";
-        catBowl.style.display = "none";
-        dogToy.style.display = "none";
-        lead2.style.display = "none";
-        dogBowl2.style.display = "none";
-        dogBowl.style.display = "none";
-        scratchPost2.style.display = "none";
-    }
-})();
+//Because I'm passing parameters the function automatically runs
+//to avoid this I used callback functions
+lead.addEventListener('click', () => addToCart('product1'));
+dogBowl.addEventListener('click', () => addToCart('product2'));
+scratchPost.addEventListener('click', () => addToCart('product3'));
+catToy.addEventListener('click', () => addToCart('product4'));
+catBowl.addEventListener('click', () => addToCart('product5'));
+dogToy.addEventListener('click', () => addToCart('product6'));
+lead2.addEventListener('click', () => addToCart('product7'));
+dogBowl2.addEventListener('click', () => addToCart('product8'));
+scratchPost2.addEventListener('click', () => addToCart('product9'));
 
 function productDetailsJSON(){
-            var data = {
-                "email":email.value,
-                "firstName":firstName.value,
-                "lastName":lastName.value,
-                "address1":address1.value,
-                "address2":address2.value,
-                "address3":address3.value
-            }
-            
-            const json = JSON.stringify(data);
-            console.log(json);
+    var data = {
+        "email":email.value,
+        "firstName":firstName.value,
+        "lastName":lastName.value,
+        "address1":address1.value,
+        "address2":address2.value,
+        "address3":address3.value
+    }
+    const json = JSON.stringify(data);
+    console.log(json);
 
-            localStorage.setItem('form', json);
-            window.location.href = "checkout.hbs";
-        }
+    localStorage.setItem('form', json);
+    window.location.href = "checkout.hbs";
+}
 
 function setJSON(){
     const productsArray =

@@ -1,25 +1,67 @@
- const paymentDiv = document.getElementById('payment');
-    const cardDiv = document.getElementById('card');
+let isValid = false;
+const displayProductDiv = document.createElement('div');
+const submitButton = document.getElementById('buy-now');
 
-    const json = localStorage.getItem('form');
-    const obj = JSON.parse(json); 
-    const product = sessionStorage.getItem('productInCart');
-    const obj2 = JSON.parse(product); 
-    const registration = localStorage.getItem("loginDetails");
-    const regEmail = JSON.parse(registration); 
+const delivery = document.getElementById('delivery');
+const paymentDetails = document.getElementById('payment');
 
-    const myDiv = document.getElementById('testDiv');
+const paymentDiv = document.getElementById('paymentResults');
+const cardDiv = document.getElementById('cardResults');
+const json = localStorage.getItem('form');
+const obj = JSON.parse(json); 
+const product = sessionStorage.getItem('productInCart');
+const obj2 = JSON.parse(product); 
 
-    //IIFE to populate the user details field of the form
-    //uses localStorage loginDetails for the email
-    //uses localStorage form for the rest
-    (function populateUserDetails(){
-       const email = document.getElementById('getEmail');
-       const firstName = document.getElementById('getFirstName');
-       const lastName = document.getElementById('getLastName');
-       const address1 = document.getElementById('getAddress1');
-       const address2 = document.getElementById('getAddress2');
-       const address3 = document.getElementById('getAddress3');
+const registration = localStorage.getItem("loginDetails");
+const regEmail = JSON.parse(registration); 
+
+const myDiv = document.getElementById('testDiv');
+const emailAddress = document.getElementById('getEmail');
+const cardCVV = document.getElementById('cardCVV');
+
+const email = document.getElementById('getEmail');
+const firstName = document.getElementById('getFirstName');
+const lastName = document.getElementById('getLastName');
+const address1 = document.getElementById('getAddress1');
+const address2 = document.getElementById('getAddress2');
+const address3 = document.getElementById('getAddress3');
+
+submitButton.addEventListener('click', emailValid);
+
+(function checkLoggedIn(event){
+   // getJSON();
+    if (sessionStorage.getItem('loginState')){
+        if(sessionStorage.getItem('loginState') === "Login"){
+            delivery.style.display = "none";
+            paymentDetails.style.display = "none";
+            submitButton.style.display = "none";
+            window.alert("Please login to checkout");
+            
+        }
+        else{
+            
+            delivery.style.display = "block";
+            paymentDetails.style.display = "block";
+            submitButton.style.display = "block";
+            
+
+            
+        }
+
+    }
+    else{
+        delivery.style.display = "none";
+        paymentDetails.style.display = "none";
+        submitButton.style.display = "none";
+        window.alert("Please login to checkout");
+        
+        
+    }
+})();
+ 
+
+
+function populateUserDetails(){
 
        email.value = regEmail.email;
        firstName.value = obj.firstName;
@@ -28,11 +70,11 @@
        address2.value = obj.address2;
        address3.value = obj.address3;
 
-    })();
+    }
 
 
-    (function displayProducts(){
-        const productDiv = document.createElement('div');
+   (function displayProducts(){
+        
         const par1 = document.createElement('p');
         let total = 0;
 
@@ -61,59 +103,45 @@
         par1.innerHTML += "Total: €" + finalTotal;
         
 
-        productDiv.appendChild(par1);
-        myDiv.appendChild(productDiv);
+        displayProductDiv.appendChild(par1);
+        myDiv.appendChild(displayProductDiv);
 
     })();
 
-    const productDiv = document.getElementById('productDetails');
-    const submitButton = document.getElementById('buy-now');
-    submitButton.addEventListener('click', emailValid);
-    const emailAddress = document.getElementById('getEmail');
-    const firstName = document.getElementById('getFirstName');
-    const lastName = document.getElementById('getLastName');
-    const address1 = document.getElementById('getAddress1');
-    const address2 = document.getElementById('getAddress2');
-    const address3 = document.getElementById('getAddress3');
     
-    function emailValid(){
-        paymentDiv.innerHTML = "";
-        let isValid = false;
+  
+
+    
+function emailValid(){
+        
         if (getEmail.value.includes("@")){
             isValid = true;
-            checkBasket();
+            checkBasket(event);
         }
         else{
-            sValid = false;
+            isValid = false;
         }
     }
 
-    function checkBasket(){
+    function checkBasket(event){
         if(obj2 === null){
-            const par1 = document.createElement('p');
-            par1.innerHTML += "There is nothing in your basket!";
-            paymentDiv.appendChild(par1);
+            event.preventDefault();
             window.alert("There is nothing in your basket!");
         }  
         else{
-            compare();
+            compare(event);
         }  
 
     }
     
-    function compare(){
-       
+    function compare(event){
         paymentDiv.innerText = "";
         cardDiv.innerText = "";
         
         if (cardCVV.value === "123" && emailAddress.value === regEmail.email && firstName.value === obj.firstName && lastName.value === obj.lastName && address1.value === obj.address1 && address2.value === obj.address2 && address3.value === obj.address3){
-            const par = document.createElement('p');
-            par.innerText = "Thank you for your order. You will receive an email with details";
-            paymentDiv.appendChild(par);
-            let cartValue= 0;
+            cartValue= 0;
             sessionStorage.setItem('cartCountJSON', cartValue);
             sessionStorage.removeItem('productInCart');
-            window.location.reload();
                                           
         }
         else {
