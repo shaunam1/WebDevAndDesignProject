@@ -42,6 +42,8 @@ nav{
     border-color: $whiteBackground;
     background-color: $websiteBackground;
     color: $mainTextColour;
+    margin-top: 10px;
+    margin-bottom: 10px;
    /*might need to change this*/
 }
 
@@ -92,8 +94,23 @@ nav{
     background-color: $whiteBackground;
     margin-top: 15px;
     margin-bottom: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
 
 }
+
+.basket{
+    border: solid darkorange;
+    background-color: $whiteBackground;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-width: 400px;
+    max-width: 400px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
 .container2{
     /* flex items will wrap if necessary */
     display: flex;
