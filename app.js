@@ -6,12 +6,6 @@ const exphbs = require('express-handlebars');
 // instantiate express
 const app = express();
 
-
-
-
-
-
-
 // configure express to use handlebars as templating engine
 app.engine(
   'hbs',
@@ -90,28 +84,6 @@ app.get('/', (req, res) => {
     console.log('checkout')
   });
 
-// contact route
-app.get('/animals', (req, res) => {
-    state={animals : true}
-    head={title:"Animals For Adoption", description:"This page shows the animals available for adoption", keywords: "animal rescue, rescue, adoption, pets, dogs, cats, horses"}
-    res.render('animals', { state:state, head:head});
-    console.log('animals')
-  });
-
-  app.get('/success', (req, res) => {
-    state={success : true}
-    head={title:"Success Stories", description:"This page shares success stories about animals adopted from the shelter", keywords: "animal rescue, rescue, adoptions, report, pet"}
-    res.render('success', { state:state, head:head});
-    console.log('success')
-  });
-
-  app.get('/adoption', (req, res) => {
-    state={adoption : true}
-    head={title:"Adoption Form", description:"This page has an adoption application whihc can be filled out to start the adoption process", keywords: "animal rescue, rescue, adoption, applicaiton form, veterinary clinic, pets, children"}
-    res.render('adoption', { state:state, head:head});
-    console.log('adoption')
-  });
-
   app.get('/contact', (req, res) => {
     state={contact : true}
     head={title:"Contact US", description:"This is the contact us page of the website", keywords: "animal rescue, address, opening hours, phone, email, social media, volunteers"}
@@ -126,15 +98,7 @@ app.get('/animals', (req, res) => {
     console.log('userDetails')
   });
 
- 
-
-  app.get('/submission', (req, res) => {
-    formDetails = {email:req.query.email, password:req.query.password}
-    res.render('submission', {state,formDetails});
-
-  });
-
-    app.get('/registerSubmission', (req, res) => {
+  app.get('/registerSubmission', (req, res) => {
     formDetails = {email:req.query.email, password:req.query.password, reenterpassword:req.query.reenterpassword}
     res.render('registerSubmission', {state,formDetails});
 
@@ -157,13 +121,6 @@ app.get('/animals', (req, res) => {
     res.render('orderDetails', {state,formDetails});
 
   });
- 
-  app.get('/script.js', (req, res) => {
-    
-    res.render('script', {state});
-
-  });
-
 // Start the server
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
