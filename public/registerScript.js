@@ -25,6 +25,7 @@ function comparePasswords(event){
         cartImage.style.display = "block";
         sessionStorage.setItem('loginState', 'Logout');
         setJSON();
+        changeUserDetails();
     }
     else{
     event.preventDefault();
